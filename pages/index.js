@@ -1,9 +1,20 @@
 import styled from 'styled-components'
 import db from '../db.json'
+import Head from 'next/head'
 import Widget from '../src/components/Widget'
 import Footer from '../src/components/Footer'
 import GitHubCorner from '../src/components/GitHubCorner'
 import QuizBackground from '../src/components/QuizBackground'
+
+const PageHead = () => {
+  return (
+    <Head>
+      <title>Quiz do Digimon — Imersão React</title>
+      <meta property="og:title" content="Quiz do Digimon" key="title" />
+      <meta property="og:image" content={db.bg}/>
+    </Head>
+  )
+} 
 
 export const QuizContainer = styled.div`
   width: 100%;
@@ -18,6 +29,8 @@ export const QuizContainer = styled.div`
 
 export default function Home() {
   return (
+    <>
+    <PageHead/>
     <QuizBackground backgroundImage={db.bg}>
       <QuizContainer>
 
@@ -45,5 +58,6 @@ export default function Home() {
 
       </QuizContainer>
     </QuizBackground>
+    </>
   )
 }
