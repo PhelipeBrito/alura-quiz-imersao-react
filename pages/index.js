@@ -20,14 +20,13 @@ export default function Home() {
   return (
     <QuizBackground backgroundImage={db.bg}>
       <QuizContainer>
+
         <Widget>
           <Widget.Header>
-              <h1>The legend of Coders</h1>
-            </Widget.Header>
-          <Widget.Content>
-            
-            
+              <h1>Digimon</h1>
+          </Widget.Header>
 
+          <Widget.Content>
             <p>lorem ipsum sit dolor...</p>
           </Widget.Content>
         </Widget>
@@ -41,7 +40,9 @@ export default function Home() {
         </Widget>
 
         <Footer/>
-        <GitHubCorner/>
+
+        <GitHubCorner projectUrl={'https://github.com/PhelipeBrito/digimon-quiz-imersao-react'}/>
+
       </QuizContainer>
     </QuizBackground>
   )
