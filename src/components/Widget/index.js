@@ -48,4 +48,21 @@ Widget.Content = styled.div`
   }
 `;
 
+Widget.Link = styled.div`
+  background-color: ${({ theme }) => theme.colors.primary};
+  display:flex;
+  align-items: center;
+  width: 100%;
+  height: 35px;
+  border-radius: 4px;
+  padding: 4px;
+  margin-bottom: 5px;
+`
+
+Widget.A = styled.a`
+  color: #dddddd;
+  font-size: 13px;
+  text-decoration: none;
+`
+
 export default Widget;

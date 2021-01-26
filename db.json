@@ -31,8 +31,8 @@
     ],
     "theme": {
       "colors": {
-        "primary": "#155fa0",
-        "secondary": "#1976d2",
+        "primary": "#115293",
+        "secondary": "#ffa733",
         "mainBg": "#1e88e5",
         "contrastText": "#FFFFFF",
         "wrong": "#FF5722",

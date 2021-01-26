@@ -7,6 +7,7 @@ import Head from 'next/head';
 import db from '../db.json';
 import Widget from '../src/components/Widget';
 import QuizLogo from '../src/components/QuizLogo';
+import Form from '../src/components/Form';
 import Footer from '../src/components/Footer';
 import GitHubCorner from '../src/components/GitHubCorner';
 import QuizBackground from '../src/components/QuizBackground';
@@ -45,24 +46,23 @@ export default function Home() {
           </Widget.Header>
 
           <Widget.Content>
-            <form onSubmit={function (infosDoEvento) {
+            <p>Teste seu conhecimento sobre o universo de digimon adventure e divirta-se!</p>
+            <Form onSubmit={function (infosDoEvento) {
               infosDoEvento.preventDefault();
               router.push(`/quiz?name=${name}`);
-
               // router manda para a próxima página
             }}
             >
-              <input
+              <Form.Input
                 onChange={function (event) {
                   setName(event.target.value);
                 }}
-                placeholder="Diz aí seu nome"
+                placeholder="Diz aí seu nome para jogar :)"
               />
-              <button type="submit" disabled={name.length === 0}>
-                Jogar
-                {name}
-              </button>
-            </form>
+              <Form.Buttom type="submit" disabled={name.length === 0}>
+                JOGAR {name}
+              </Form.Buttom>
+            </Form>
           </Widget.Content>
         </Widget>
 
@@ -70,13 +70,24 @@ export default function Home() {
           <Widget.Content>
             <h1>Quizes da galera</h1>
 
-            <p>lorem ipsum sit dolor...</p>
+            <p>Dá uma olhada nos demais quizes que a galera da imersão react fez</p>
+            <Widget.Link>
+              <Widget.A href="/">umlinkizinho/aluraquiz</Widget.A>
+            </Widget.Link>
+
+            <Widget.Link>
+              <Widget.A href="/">linkizinho/aluraquiz</Widget.A>
+            </Widget.Link>
+
+            <Widget.Link>
+              <Widget.A href="/">outrolinkizinho/aluraquiz</Widget.A>
+            </Widget.Link>
           </Widget.Content>
         </Widget>
 
         <Footer />
 
-        <GitHubCorner projectUrl="https://github.com/PhelipeBrito/digimon-quiz-imersao-react" />
+        <GitHubCorner projectUrl="https://github.com/PhelipeBrito" />
 
       </QuizContainer>
     </QuizBackground>
