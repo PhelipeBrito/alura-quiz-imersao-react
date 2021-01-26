@@ -1,20 +1,23 @@
-import styled from 'styled-components'
-import db from '../db.json'
-import Head from 'next/head'
-import Widget from '../src/components/Widget'
-import Footer from '../src/components/Footer'
-import GitHubCorner from '../src/components/GitHubCorner'
-import QuizBackground from '../src/components/QuizBackground'
+import React from 'react';
+import styled from 'styled-components';
+import { useRouter } from 'next/router';
 
-const PageHead = () => {
-  return (
-    <Head>
-      <title>Quiz do Digimon — Imersão React</title>
-      <meta property="og:title" content="Quiz do Digimon" key="title" />
-      <meta property="og:image" content={db.bg}/>
-    </Head>
-  )
-} 
+// eslint-disable-next-line import/no-unresolved
+import Head from 'next/head';
+import db from '../db.json';
+import Widget from '../src/components/Widget';
+import QuizLogo from '../src/components/QuizLogo';
+import Footer from '../src/components/Footer';
+import GitHubCorner from '../src/components/GitHubCorner';
+import QuizBackground from '../src/components/QuizBackground';
+
+const PageHead = () => (
+  <Head>
+    <title>Aluraquiz — Digimon</title>
+    <meta property="og:title" content="Aluraquiz — Digimon" key="title" />
+    <meta property="og:image" content={db.bg} />
+  </Head>
+);
 
 export const QuizContainer = styled.div`
   width: 100%;
@@ -28,19 +31,38 @@ export const QuizContainer = styled.div`
 `;
 
 export default function Home() {
-  return (
-    <>
-    <PageHead/>
-    <QuizBackground backgroundImage={db.bg}>
-      <QuizContainer>
+  const router = useRouter();
+  const [name, setName] = React.useState('');
 
+  return (
+    <QuizBackground backgroundImage={db.bg}>
+      <PageHead />
+      <QuizContainer>
+        <QuizLogo />
         <Widget>
           <Widget.Header>
-              <h1>Digimon</h1>
+            <h1>Digimon</h1>
           </Widget.Header>
 
           <Widget.Content>
-            <p>lorem ipsum sit dolor...</p>
+            <form onSubmit={function (infosDoEvento) {
+              infosDoEvento.preventDefault();
+              router.push(`/quiz?name=${name}`);
+
+              // router manda para a próxima página
+            }}
+            >
+              <input
+                onChange={function (event) {
+                  setName(event.target.value);
+                }}
+                placeholder="Diz aí seu nome"
+              />
+              <button type="submit" disabled={name.length === 0}>
+                Jogar
+                {name}
+              </button>
+            </form>
           </Widget.Content>
         </Widget>
 
@@ -52,12 +74,11 @@ export default function Home() {
           </Widget.Content>
         </Widget>
 
-        <Footer/>
+        <Footer />
 
-        <GitHubCorner projectUrl={'https://github.com/PhelipeBrito/digimon-quiz-imersao-react'}/>
+        <GitHubCorner projectUrl="https://github.com/PhelipeBrito/digimon-quiz-imersao-react" />
 
       </QuizContainer>
     </QuizBackground>
-    </>
-  )
+  );
 }
