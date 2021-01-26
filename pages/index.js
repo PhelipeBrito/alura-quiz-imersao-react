@@ -42,7 +42,7 @@ export default function Home() {
         <QuizLogo />
         <Widget>
           <Widget.Header>
-            <h1>Digimon</h1>
+            <h1>Black Clover</h1>
           </Widget.Header>
 
           <Widget.Content>
