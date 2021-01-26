@@ -46,7 +46,7 @@ export default function Home() {
           </Widget.Header>
 
           <Widget.Content>
-            <p>Teste seu conhecimento sobre o universo de digimon adventure e divirta-se!</p>
+            <p>Teste seu conhecimento sobre o universo de Black Clover e divirta-se!</p>
             <Form onSubmit={function (infosDoEvento) {
               infosDoEvento.preventDefault();
               router.push(`/quiz?name=${name}`);
