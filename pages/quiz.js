@@ -24,7 +24,8 @@ function LoadingWidget() {
 function QuestionWidget({
   question, 
   totalQuestions, 
-  questionIndex
+  questionIndex, 
+  onSubmit
 }) {
   const questionId = `question__${questionIndex}`
   return (
@@ -53,7 +54,10 @@ function QuestionWidget({
         {question.description}
         </p>
 
-        <form>
+        <form onSubmit={((event) => {
+          event.preventDefault();
+          onSubmit()
+        })}>
           {question.alternatives.map((alternative, alternativeIndex) => {
             const alternativeId = `alternative__${alternativeIndex}`;
             return (
@@ -90,8 +94,8 @@ const screenStates = {
 
 export default function QuizPage() {
   const [screenState, setScreenState] = React.useState(screenStates.LOADING)
-  const questionIndex = 1;
-  const [currentQUestion]
+  const [currentQuestion, setCurrentQuestion] = React.useState(0);
+  const questionIndex = currentQuestion;
   const question = db.questions[questionIndex];
   const totalQuestions = db.questions.length;
 
@@ -101,7 +105,14 @@ export default function QuizPage() {
     }, 1 * 1000);
   })
   
-  
+  function handleSubmitQuiz() {
+    const nextQuestion = questionIndex + 1;
+    if (nextQuestion < totalQuestions) {
+      setCurrentQuestion(nextQuestion);
+    } else {
+      setScreenState(screenStates.RESULT);
+    }
+  }
 
   return (
     <QuizBackground backgroundImage={db.bg}>
@@ -112,6 +123,7 @@ export default function QuizPage() {
           question={question}
           questionIndex={questionIndex}
           totalQuestions={totalQuestions}
+          onSubmit={handleSubmitQuiz}
        />
        }
 
