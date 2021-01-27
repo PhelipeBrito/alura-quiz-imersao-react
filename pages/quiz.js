@@ -2,6 +2,7 @@ import React from 'react';
 
 import db from '../db.json';
 import Widget from '../src/components/Widget';
+import PageHead from '../src/components/PageHead';
 import QuizLogo from '../src/components/QuizLogo';
 import QuizContainer from '../src/components/QuizContainer';
 import QuizBackground from '../src/components/QuizBackground';
@@ -30,6 +31,7 @@ function QuestionWidget({
   const questionId = `question__${questionIndex}`
   return (
     <Widget>
+      
       <Widget.Header>
         {/*<BackLinkArrow href="/" */}
         <h3>
@@ -116,8 +118,9 @@ export default function QuizPage() {
 
   return (
     <QuizBackground backgroundImage={db.bg}>
+      <PageHead />
       <QuizContainer>
-
+        <QuizLogo />
        {screenState === screenStates.QUIZ &&
        <QuestionWidget  
           question={question}

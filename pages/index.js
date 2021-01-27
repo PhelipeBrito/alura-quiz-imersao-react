@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import { useRouter } from 'next/router';
 
 // eslint-disable-next-line import/no-unresolved
-import Head from 'next/head';
+
 import db from '../db.json';
+import PageHead from '../src/components/PageHead';
 import Widget from '../src/components/Widget';
 import QuizLogo from '../src/components/QuizLogo';
-import Form from '../src/components/Form';
 import Footer from '../src/components/Footer';
 import QuizContainer from '../src/components/QuizContainer';
 import QuizBackground from '../src/components/QuizBackground';
@@ -15,16 +15,7 @@ import Input from '../src/components/Input';
 import Button from '../src/components/Button';
 import GitHubCorner from '../src/components/GitHubCorner';
 
-const PageHead = () => (
-  <Head>
-    <title>Aluraquiz — Black Clover</title>
-    <meta property="og:title" content="Aluraquiz — Black Clover" key="title" />
-    <meta property="og:image" content={db.bg} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://alura-quiz-imersao-react.phelipebrito.vercel.app/" />
-    <meta property="og:description" content="Um quiz para testar seus conhecimentos do universo Black Clover e se divertir!" />
-  </Head>
-);
+
 
 export default function Home() {
   const router = useRouter();
