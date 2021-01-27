@@ -4,25 +4,26 @@
     "description": "Teste os seus conhecimentos sobre CSS e vamos ver quantos layouts você vai deixar de quebrar",
     "questions": [
       {
-        "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
-        "title": "Como fazer um seletor por id via CSS?",
-        "description": "Essa é pra aquecer",
+        "image": "https://i.redd.it/8dv652812jy11.jpg",
+        "title": "Em black clover cada folha do trevo tem um significado. Com quantas folhas é considerado um trevo de bom agouro",
+        "description": "Boa sorte, haha!",
         "answer": 2,
         "alternatives": [
-          ".elemento",
-          "*elemento",
-          "#elemento",
-          "%elemento"
+          "3 folha",
+          "4 folhas",
+          "5 folhas",
+          "Não há trevo de bom agouro"
         ]
       },
       {
-        "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-        "title": "Como fazer um background gradiente com css?",
-        "description": "Faz tempo em haha",
+        "image": "https://pbs.twimg.com/profile_images/1291185432156307456/v8wPybSh.jpg",
+        "title": "O que torna Asta, o protagonista, um elemento diferenciado dentro de um mundo onde a magia é tudo?",
+        "description": "A pergunta quase se responde",
         "answer": 0,
         "alternatives": [
-           "background: linear-gradient(#e66465, #9198e5);",
-           "background: gradient(#e66465, #9198e5);"
+           "Ele possuir o maior poder mágico desde o início",
+           "Ele ser um mago comum que se destaca em seu estudos",
+           "Não possuir magia alguma"
         ]
       }
     ],
