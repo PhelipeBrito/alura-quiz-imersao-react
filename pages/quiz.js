@@ -28,7 +28,11 @@ function QuestionWidget({
   questionIndex, 
   onSubmit
 }) {
-  const questionId = `question__${questionIndex}`
+  const [selectedAlternative, setSelectedAlternative] = React.useState(undefined);
+  const [isQuestionSubmitted, setIsQuestionSubmitted] = React.useState(false)
+  const questionId = `question__${questionIndex}`;
+  const isCorrect = selectedAlternative === question.answer;
+  const hasAlternativeSelected = selectedAlternative !== undefined;
   return (
     <Widget>
       
@@ -58,18 +62,25 @@ function QuestionWidget({
 
         <form onSubmit={((event) => {
           event.preventDefault();
-          onSubmit()
+          setIsQuestionSubmitted(true)
+          setTimeout(() => {
+            onSubmit()
+            setIsQuestionSubmitted(false)
+            setSelectedAlternative(undefined)
+          }, 2 * 1000);
         })}>
           {question.alternatives.map((alternative, alternativeIndex) => {
             const alternativeId = `alternative__${alternativeIndex}`;
             return (
               <Widget.Topic
                 as="label"
+                key={alternativeId}
                 htmlFor={alternativeId}
               >           
                 <input 
                   style={{display: 'none'}}
                   id={alternativeId}
+                  onChange={() => setSelectedAlternative(alternativeIndex)}
                   name={questionId}
                   type="radio"
                 />
@@ -79,9 +90,11 @@ function QuestionWidget({
           })}
         
 
-          <Button type="submit">
+          <Button type="submit" disabled={!hasAlternativeSelected}>
             Confirmar
           </Button>
+          {isQuestionSubmitted && isCorrect && <p>{`Você acertou! >.<`}</p>}
+          {isQuestionSubmitted && !isCorrect && <p>Você não acertou ;-;</p>}
         </form>
       </Widget.Content> 
     </Widget>
