@@ -25,6 +25,39 @@
            "Ele ser um mago comum que se destaca em seu estudos",
            "Não possuir magia alguma"
         ]
+      },  {
+        "image": "https://pm1.narvii.com/7411/db1197a018ec5b208c53a72c467c9458ca3bd129r1-1280-720v2_uhq.jpg",
+        "title": "Quem atuou como instrutor(a) de magia de Fuegoleon Vermillion quando ele era mais jovem?",
+        "description": "É comum os mais velhos serem os mais experientes",
+        "answer": 3,
+        "alternatives": [
+          "Julius Novachrono",
+          "Nozel Silva",
+          "Owen",
+          "Theresa Rapual"
+        ]
+      },  {
+        "image": "https://pm1.narvii.com/6965/c2a0ea4dd31ae9db20d6e4e974cb38fd895e9062r1-1641-1079v2_00.jpg",
+        "title": "Como Mars consegue utilizar feitiços de dois elementos diferentes?",
+        "description": "Nem tudo é o que parece.",
+        "answer": 1,
+        "alternatives": [
+          "É seu dom natural",
+          "Através de experimentos",
+          "Sendo abençoado por um espirito elemental",
+          "Somente costurando duas capas de grimórios diferentes"
+        ]
+      }, {
+        "image": "https://animesolution.com/wp-content/uploads/2017/12/Black-Clover-09_05.53_2017.12.12_18.02.50_stitch.jpg",
+        "title": "Para qual vila foi a primeira missão de Asta e Noelle?",
+        "description": "Ih, rapaz...",
+        "answer": 2,
+        "alternatives": [
+          "Hage",
+          "Kikka",
+          "Sosshi",
+          "Kiten"
+        ]
       }
     ],
     "external": [
