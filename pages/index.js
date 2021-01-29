@@ -14,6 +14,7 @@ import QuizBackground from '../src/components/QuizBackground';
 import Input from '../src/components/Input';
 import Button from '../src/components/Button';
 import GitHubCorner from '../src/components/GitHubCorner';
+import Link from '../src/components/Link';
 
 
 
@@ -60,17 +61,27 @@ export default function Home() {
             <h1>Quizes da galera</h1>
 
             <p>Dá uma olhada nos demais quizes que a galera da imersão react fez</p>
-            <Widget.Link>
-              <Widget.A href="/">umlinkizinho/aluraquiz</Widget.A>
-            </Widget.Link>
+            <ul>
 
-            <Widget.Link>
-              <Widget.A href="/">linkizinho/aluraquiz</Widget.A>
-            </Widget.Link>
+            {db.external.map((linkExterno) => {
+                const [projectName, githubUser] = linkExterno
+                  .replace(/\//g, '')
+                  .replace('https:', '')
+                  .replace('.vercel.app', '')
+                  .split('.');
 
-            <Widget.Link>
-              <Widget.A href="/">outrolinkizinho/aluraquiz</Widget.A>
-            </Widget.Link>
+              return (
+                <li 
+                  key={linkExterno}
+                  as={Link}
+                >
+                  <Widget.Topic href={`/quiz/${projectName}___${githubUser}`}>
+                    {`${githubUser}/${projectName}`}
+                  </Widget.Topic>
+                </li>
+              )
+            })}
+            </ul>
           </Widget.Content>
         </Widget>
 

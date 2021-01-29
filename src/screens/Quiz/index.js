@@ -1,14 +1,14 @@
 import React from 'react';
 
-import db from '../db.json';
-import Widget from '../src/components/Widget';
-import PageHead from '../src/components/PageHead';
-import QuizLogo from '../src/components/QuizLogo';
-import QuizContainer from '../src/components/QuizContainer';
-import AlternativesForm from '../src/components/AlternativesForm';
-import QuizBackground from '../src/components/QuizBackground';
-import Button from '../src/components/Button';
-import Loading from '../src/components/Loading';
+import db from '../../../db.json';
+import Widget from '../../components/Widget';
+import PageHead from '../../components/PageHead';
+import QuizLogo from '../../components/QuizLogo';
+import QuizContainer from '../../components/QuizContainer';
+import AlternativesForm from '../../components/AlternativesForm';
+import QuizBackground from '../../components/QuizBackground';
+import Button from '../../components/Button';
+import Loading from '../../components/Loading';
 
 function ResultWidget({ results }) {
   return (
@@ -148,13 +148,14 @@ const screenStates = {
   RESULT: 'RESULT'
 }
 
-export default function QuizPage() {
+export default function QuizPage({ externalQuestions, externalBg }) {
   const [screenState, setScreenState] = React.useState(screenStates.LOADING)
   const [results, setResults] = React.useState([]) 
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
   const questionIndex = currentQuestion;
-  const question = db.questions[questionIndex];
-  const totalQuestions = db.questions.length;
+  const question = externalQuestions[questionIndex];
+  const totalQuestions = externalQuestions.length;
+  const bg = externalBg;
 
   function addResult(result) {
     setResults([
@@ -180,7 +181,7 @@ export default function QuizPage() {
   }
 
   return (
-    <QuizBackground backgroundImage={db.bg}>
+    <QuizBackground backgroundImage={bg}>
       <PageHead />
       <QuizContainer>
         <QuizLogo />
