@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {motion} from 'framer-motion'
 import { useRouter } from 'next/router';
 
 // eslint-disable-next-line import/no-unresolved
@@ -27,7 +28,16 @@ export default function Home() {
       <PageHead />
       <QuizContainer>
         <QuizLogo />
-        <Widget>
+        <Widget 
+          as={ motion.section }
+          transition={{delay: 0 ,duration: .5}}
+          variants={{
+            show: { opacity: 1, y: '0' },
+            hidden: {opacity: 0, y: '100%'}
+          }}
+          initial="hidden"
+          animate="show"
+        >
           <Widget.Header>
             <h1>Black Clover</h1>
           </Widget.Header>
@@ -56,7 +66,16 @@ export default function Home() {
           </Widget.Content>
         </Widget>
 
-        <Widget>
+        <Widget
+          as={ motion.section }
+          transition={{delay: .2 ,duration: .5}}
+          variants={{
+            show: { opacity: 1},
+            hidden: {opacity: 0}
+          }}
+          initial="hidden"
+          animate="show"
+        >
           <Widget.Content>
             <h1>Quizes da galera</h1>
 
@@ -71,11 +90,11 @@ export default function Home() {
                   .split('.');
 
               return (
-                <li 
-                  key={linkExterno}
-                  as={Link}
-                >
-                  <Widget.Topic href={`/quiz/${projectName}___${githubUser}`}>
+                <li key={linkExterno}>
+                  <Widget.Topic 
+                    href={`/quiz/${projectName}___${githubUser}`}
+                    as={Link}
+                  >
                     {`${githubUser}/${projectName}`}
                   </Widget.Topic>
                 </li>
