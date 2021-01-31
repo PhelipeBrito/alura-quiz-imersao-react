@@ -2,6 +2,7 @@ import React from 'react';
 
 import db from '../../db.json';
 import Widget from '../../src/components/Widget';
+import {motion} from 'framer-motion'
 import PageHead from '../../src/components/PageHead';
 import QuizLogo from '../../src/components/QuizLogo';
 import QuizContainer from '../../src/components/QuizContainer';
@@ -13,7 +14,16 @@ import Loading from '../../src/components/Loading';
 
 function ResultWidget({ results }) {
   return (
-    <Widget>
+    <Widget
+      as={ motion.section }
+      transition={{delay: 0 ,duration: .5}}
+      variants={{
+        show: { opacity: 1, y: '0' },
+        hidden: {opacity: 0, y: '20%'}
+      }}
+      initial="hidden"
+      animate="show"
+    >
       <Widget.Header>
         Tela de Resultado:
       </Widget.Header>
@@ -46,7 +56,16 @@ function ResultWidget({ results }) {
 
 function LoadingWidget() {
   return (
-    <Widget>
+    <Widget
+      as={ motion.section }
+      transition={{delay: 0 ,duration: .5}}
+      variants={{
+        show: { opacity: 1, y: '0' },
+        hidden: {opacity: 0, y: '20%'}
+      }}
+      initial="hidden"
+      animate="show"
+    >
       <Widget.Header>
         Now Loading...
       </Widget.Header>
@@ -71,7 +90,16 @@ function QuestionWidget({
   const isCorrect = selectedAlternative === question.answer;
   const hasAlternativeSelected = selectedAlternative !== undefined;
   return (
-    <Widget>
+    <Widget
+      as={ motion.section }
+      transition={{delay: 0 ,duration: .7}}
+      variants={{
+        show: { opacity: 1 },
+        hidden: {opacity: 0}
+      }}
+      initial="hidden"
+      animate="show"
+    >
       
       <Widget.Header>
         <BackLinkArrow href="/" /> 
