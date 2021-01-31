@@ -22,6 +22,14 @@ import Link from '../src/components/Link';
 export default function Home() {
   const router = useRouter();
   const [name, setName] = React.useState('');
+  const [errorName, setErrorName] = React.useState('')
+
+  function notClickable(event) {
+    if (name.length === 0) {
+      event.preventDefault();
+      setErrorName('Diz aí seu nome lá em cima para jogar')
+    }    
+  }
 
   return (
     <QuizBackground backgroundImage={db.bg}>
@@ -80,6 +88,7 @@ export default function Home() {
             <h1>Quizes da galera</h1>
 
             <p>Dá uma olhada nos demais quizes que a galera da imersão react fez</p>
+            <p style={{color: '#801313'}}>{errorName}</p>
             <ul>
 
             {db.external.map((linkExterno) => {
@@ -94,6 +103,9 @@ export default function Home() {
                   <Widget.Topic 
                     href={`/quiz/${projectName}___${githubUser}`}
                     as={Link}
+                    onClick={(event) => {
+                      notClickable(event)
+                    }}
                   >
                     {`${githubUser}/${projectName}`}
                   </Widget.Topic>

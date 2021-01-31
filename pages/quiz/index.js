@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 
 import db from '../../db.json';
 import Widget from '../../src/components/Widget';
@@ -13,6 +14,9 @@ import BackLinkArrow from '../../src/components/BackLinkArrow';
 import Loading from '../../src/components/Loading';
 
 function ResultWidget({ results }) {
+  const router = useRouter()
+  const { name } = router.query
+
   return (
     <Widget
       as={ motion.section }
@@ -29,6 +33,7 @@ function ResultWidget({ results }) {
       </Widget.Header>
 
       <Widget.Content>
+        <h1>Parabens, {name}</h1>
         <p>
           Você acertou
           {' '}
