@@ -1,5 +1,4 @@
 import React from 'react';
-import { useRouter } from 'next/router';
 
 import db from '../../../db.json';
 import Widget from '../../components/Widget';
@@ -12,8 +11,6 @@ import Button from '../../components/Button';
 import Loading from '../../components/Loading';
 
 function ResultWidget({ results }) {
-  const router = useRouter()
-  const { name } = router.query
 
   return (
     <Widget>

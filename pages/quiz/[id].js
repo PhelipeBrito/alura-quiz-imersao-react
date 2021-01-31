@@ -8,6 +8,7 @@ export default function QuizDaGalera({dbExterno}) {
             <QuizScreen 
                 externalQuestions={dbExterno.questions}
                 externalBg={dbExterno.bg}
+                externalTheme={dbExterno.theme}
             />
         </ThemeProvider>
 
@@ -30,7 +31,7 @@ export async function getServerSideProps(context) {
             console.log(err);
         })
 
-        //console.log('dbExterno: ',dbExterno);
+        console.log('dbExterno: ',dbExterno);
 
     return{
         props: {
